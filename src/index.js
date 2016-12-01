@@ -1,22 +1,43 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware } from 'redux'
+import thunkMiddleware from 'redux-thunk';
+import { Provider } from 'react-redux';
+import { browserHistory, Router, Route, IndexRoute } from 'react-router';
 import App from './App';
 import './index.css';
-import { browserHistory, Router, Route, IndexRoute } from 'react-router';
 import HomePage from './containers/HomePage';
 import Login from './containers/Login';
 import SignUp from './containers/SignUp';
+import koviesReducer from './reducers';
+import { loadState, saveState } from './api/localStorage';
+
+const persistedState = loadState();
+const createStoreWithMiddleware = applyMiddleware(
+  thunkMiddleware,
+)(createStore);
+const store = createStoreWithMiddleware(
+  koviesReducer,
+  persistedState,
+  window.devToolsExtension && window.devToolsExtension()
+);
+store.subscribe(() => {
+  const state = store.getState();
+  saveState(state);
+});
 
 const FourOFour = () => <h1>404</h1>;
 
 ReactDOM.render(
-  <Router history={browserHistory}>
-    <Route path="/login" component={Login} />
-    <Route path="/signup" component={SignUp} />
-    <Route path="/" component={App}>
-      <IndexRoute component={HomePage} />
-      <Route path="*" component={FourOFour} />
-    </Route>
-  </Router>,
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={SignUp} />
+      <Route path="/" component={App}>
+        <IndexRoute component={HomePage} />
+        <Route path="*" component={FourOFour} />
+      </Route>
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );

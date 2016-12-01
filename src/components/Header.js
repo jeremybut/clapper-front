@@ -5,7 +5,8 @@ const Header = props => {
   return (
     <div>
       <Link to="/">Home</Link>
-      <Link to="/zorglub">404</Link>
+      <Link to="/login">Login</Link>
+      <Link to="/signup">Signup</Link>
       Hello world <button onClick={props.onClick}>{props.foo}</button>
     </div>
   );

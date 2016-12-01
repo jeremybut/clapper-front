@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { loginUser } from '../actions';
 
 class Login extends Component {
   constructor(props) {
@@ -13,21 +15,10 @@ class Login extends Component {
   handleFormSubmit(e) {
     e.preventDefault();
 
-    const payload = {
-      username: this.refs.email.value,
+    this.props.loginUser({
+      email: this.refs.email.value,
       password: this.refs.password.value,
-      grant_type: 'password',
-    };
-
-    fetch('http://localhost:3000/oauth/token', {
-      method: 'post',
-      headers: {
-        'Content-Type':'application/json'
-      },
-      body: JSON.stringify(payload)
-    })
-      .then(response => response.json())
-      .then(response => console.log(response))
+    });
   }
 
   render() {
@@ -43,4 +34,12 @@ class Login extends Component {
       );
   }
 }
-export default Login;
+
+const mapStateToProps = state => ({
+});
+
+const mapDispatchToProps = dispatch => ({
+  loginUser: ({ email, password }) => dispatch(loginUser({ email, password })),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
