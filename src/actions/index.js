@@ -1,3 +1,6 @@
+import * as Api from '../api/api';
+import { API_ROOT } from '../constants';
+
 const requestLogin = () => ({
   type: 'LOGIN_REQUEST',
 });
@@ -16,25 +19,36 @@ export const loginUser = ({ email, password }) => (dispatch) => {
     grant_type: 'password',
   };
 
-  fetch('http://localhost:3000/oauth/token', {
-    method: 'post',
-    headers: {
-      'Content-Type':'application/json'
-    },
-    body: JSON.stringify(payload)
-  })
+  Api.postAuthorizationCode(payload)
     .then(response => response.json())
     .then(response => {
       dispatch(receiveLogin(response.access_token))
 
-      fetch('http://localhost:3000/api/v1/movies', {
-        method: 'get',
-        headers: {
-          'Content-Type':'application/json',
-          'Authorization': `Bearer ${response.access_token}`
-        }
-      })
+      Api.get(`${API_ROOT}/v1/movies`)
         .then(response => response.json())
-        .then(response => console.log(response));
+        .then(response => console.log(response))
     });
 }
+
+const requestSignup = () => ({
+  type: 'SIGNUP_REQUEST',
+});
+
+const receiveSignup = token => ({
+  type: 'SIGNUP_SUCCESS',
+  token,
+});
+
+export const signupUser = ({ email, password, kodi_username, kodi_password, kodi_host, kodi_port }) => (dispatch) => {
+  dispatch(requestSignup());
+
+  const payload = {
+    email, password, kodi_username, kodi_password, kodi_host, kodi_port
+  };
+
+  Api.signup(payload)
+    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+  })
+};

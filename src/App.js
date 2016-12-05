@@ -10,6 +10,14 @@ class App extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentDidMount() {
+    console.log(localStorage.getItem('state'));
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log(localStorage.getItem('state'));
+  }
+
   handleClick(e) {
     console.log(e.nativeEvent);
   }
