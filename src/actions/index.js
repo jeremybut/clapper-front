@@ -1,6 +1,6 @@
+import { browserHistory } from 'react-router';
 import * as Api from '../api/api';
 import { API_ROOT } from '../constants';
-
 const requestLogin = () => ({
   type: 'LOGIN_REQUEST',
 });
@@ -23,11 +23,25 @@ export const loginUser = ({ email, password }) => (dispatch) => {
     .then(response => response.json())
     .then(response => {
       dispatch(receiveLogin(response.access_token))
-
-      Api.get(`${API_ROOT}/v1/movies`)
-        .then(response => response.json())
-        .then(response => console.log(response))
+      browserHistory.push('/');
     });
+}
+
+const requestUserMovies = () => ({
+  type: 'MOVIES_REQUEST',
+});
+
+const receiveUserMovies = response => ({
+  type: 'MOVIES_SUCCESS',
+  payload: response.movies,
+});
+
+export const fetchUserMovies = () => (dispatch) => {
+  dispatch(requestUserMovies());
+
+  Api.get(`${API_ROOT}/v1/movies`)
+    .then(response => response.json())
+    .then(response => dispatch(receiveUserMovies(response)));
 }
 
 const requestSignup = () => ({
@@ -52,3 +66,7 @@ export const signupUser = ({ email, password, kodi_username, kodi_password, kodi
       console.log(response)
   })
 };
+
+export const logoutUser = () => ({
+  type: 'LOGOUT_SUCCESS',
+})

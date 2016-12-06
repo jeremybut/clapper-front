@@ -1,62 +1,40 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class HomePage extends Component {
   constructor() {
     super();
 
     this.state = {
-      movies: [
-        { name: 'Pulp Fiction' },
-        { name: 'Hateful eight' },
-        { name: 'Inglorious bastards' },
-      ],
+      shown: 10,
     };
+
+    this.loadMore = this.loadMore.bind(this);
   }
 
-  componentWillMount() {
-
-  }
-
-  componentDidMount() {
-
-  }
-
-  shouldComponentUpdate() {
-
-  }
-
-  componentWillReceiveProps(nextProps) {
-
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-
-  }
-
-  componentDidUpdate(prevProps, prevStates) {
-
-  }
-
-  componentWillUnmount() {
-
+  loadMore() {
+    this.setState({ shown: this.state.shown + 10 });
   }
 
   render() {
-    console.log(this.state);
+    const { shown } = this.state;
+
     return (
       <div>
         <h1>Homepage</h1>
         <ul>
-          {this.state.movies
-            .filter(movie => movie.name.length > 13)
-            .map((movie, index) => (
-              <li key={index}>{movie.name}</li>
-            )
-          )}
+          {this.props.movies.slice(0, shown).map(movie => (
+            <li key={movie.movieid}>{movie.label}</li>
+          ))}
         </ul>
+        <button onClick={this.loadMore}>Load more</button>
       </div>
     );
   }
 }
 
-export default HomePage;
+const mapStateToProps = state => ({
+  movies: state.movies,
+})
+
+export default connect(mapStateToProps)(HomePage);

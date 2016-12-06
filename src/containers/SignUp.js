@@ -18,10 +18,10 @@ class Signup extends Component {
     this.props.signupUser({
       email: this.refs.email.value,
       password: this.refs.password.value,
-      kodi_host: this.refs.kodi_host.value,
-      kodi_port: this.refs.kodi_port.value,
-      kodi_username: this.refs.kodi_username.value,
-      kodi_password: this.refs.kodi_password.value,
+      kodi_host: this.refs.kodiHost.value,
+      kodi_port: this.refs.kodiPort.value,
+      kodi_username: this.refs.kodiUsername.value,
+      kodi_password: this.refs.kodiPassword.value,
     });
   }
 
@@ -30,12 +30,24 @@ class Signup extends Component {
       <div>
         <h1>Signup</h1>
         <form onSubmit={this.handleFormSubmit}>
-          <p><input type="email" ref="email" placeholder='email' /></p>
-          <p><input type="text" ref="password" placeholder='password' /></p>
-          <p><input type="text" ref="kodi_host" placeholder='kodi_host' /></p>
-          <p><input type="text" ref="kodi_port" placeholder='kodi_port' /></p>
-          <p><input type="text" ref="kodi_username" placeholder='kodi_username' /></p>
-          <p><input type="text" ref="kodi_password" placeholder='kodi_password' /></p>
+          <p>
+            <input type="email" ref="email" />
+          </p>
+          <p>
+            <input type="text" ref="password" />
+          </p>
+          <p>
+            <input type="text" ref="kodiHost" />
+          </p>
+          <p>
+            <input type="text" ref="kodiPort" />
+          </p>
+          <p>
+            <input type="text" ref="kodiUsername" />
+          </p>
+          <p>
+            <input type="text" ref="kodiPassword" />
+          </p>
           <button type="submit">Go</button>
         </form>
       </div>

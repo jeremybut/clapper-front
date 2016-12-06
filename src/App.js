@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 import logo from './logo.svg';
 import Header from './components/Header';
+import { fetchUserMovies } from './actions';
 import './App.css';
 
 class App extends Component {
@@ -10,13 +13,26 @@ class App extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentWillMount() {
+    this.disconnectIfNotLoggedIn();
+  }
+
   componentDidMount() {
-    console.log(localStorage.getItem('state'));
+    this.props.fetchUserMovies();
   }
 
   componentDidUpdate(prevProps) {
-    console.log(localStorage.getItem('state'));
+    this.disconnectIfNotLoggedIn();
   }
+
+  disconnectIfNotLoggedIn() {
+    const { user } = this.props;
+
+    if (!user || !user.token) {
+      browserHistory.push('/login');
+    }
+  }
+
 
   handleClick(e) {
     console.log(e.nativeEvent);
@@ -37,4 +53,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  user: state.user,
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchUserMovies: () => dispatch(fetchUserMovies()),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

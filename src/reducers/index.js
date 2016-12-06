@@ -3,7 +3,20 @@ const kovies = (state = {}, action) => {
     case 'LOGIN_SUCCESS':
       return {
         ...state,
-        token: action.token,
+        user: {
+          ...state.user,
+          token: action.token,
+        },
+      };
+    case 'LOGOUT_SUCCESS':
+      return {
+        ...state,
+        user: null,
+      }
+    case 'MOVIES_SUCCESS':
+      return {
+        ...state,
+        movies: action.payload,
       };
     default:
       return state;

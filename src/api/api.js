@@ -4,7 +4,7 @@ export const get = uri => fetch(uri, {
   method: 'get',
   headers: {
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).token}`,
+    Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user.token}`,
   },
 });
 
