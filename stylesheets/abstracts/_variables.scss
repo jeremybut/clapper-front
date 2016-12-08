@@ -1,0 +1,68 @@
+$palette: (
+  anthracite: (
+    default: #737B7F,
+    light: #A1ADB3,
+    dark: #3F557F,
+    darker: #192233,
+  ),
+  brand: (
+    default: #F52C2C, // Red
+    secondary: #FFBB00, // Orange
+  ),
+  red: (
+    default: #f2c600, // alerts,
+  ),
+  grey: (
+    default: #F4F4F4,
+  ),
+  green: (
+    default: #48CC8A,
+  ),
+  blue: (
+    default: #3377FF,
+  ),
+);
+
+$colors: (
+  text: palette(anthracite),
+  text--dark: palette(anthracite, dark),
+  text--darker: palette(anthracite, darker),
+  link: palette(blue),
+  primary: palette(brand),
+  secondary: palette(brand, secondary),
+  background: palette(grey),
+);
+
+$font-headings: 'Oswald', -apple-system, 'Helvetica', serif;
+$font-text: -apple-system, 'Roboto', 'Segoe UI', 'Helvetica Neue', sans-serif;
+$base-line-height: 1.2;
+
+$spacing-unit: 16px;
+$container-width: 1200px;
+$container-width--narrow: 768px;
+
+$border-radius: 4px;
+
+$global-header-height: 60px;
+$width-mobile-menu: 280px;
+
+$ratio: 1.414;
+$first-breakpoint: 25em;
+
+$breakpoints: (
+  "split"       "#{$first-breakpoint}",
+  "half"        "#{$first-breakpoint*$ratio}",
+  "bottle"      "#{$first-breakpoint*$ratio*$ratio}",
+  "magnum"      "#{$first-breakpoint*$ratio*$ratio*$ratio}",
+  "jeroboam"    "#{$first-breakpoint*$ratio*$ratio*$ratio*$ratio}",
+  "methuselah"  "#{$first-breakpoint*$ratio*$ratio*$ratio*$ratio*$ratio}"
+);
+
+$columns: (
+  1,
+  2,
+  3,
+  4,
+  5,
+  6
+);

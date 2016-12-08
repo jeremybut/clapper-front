@@ -1,0 +1,64 @@
+.c-button {
+  padding: $spacing-unit/(1.5) $spacing-unit;
+  background-color: color(primary);
+  border-radius: $border-radius;
+  text-shadow: 0 1px 2px rgba(0,0,0,.35);
+  box-shadow: 0 2px 0px darken(color(primary), 8%);
+  color: #fff;
+  transition: background 150ms ease;
+  text-align: center;
+  line-height: $base-line-height;
+  display: inline-block;
+  vertical-align: baseline;
+
+  &:hover {
+    color: #fff;
+    background-color: darken(color(primary), 5%);
+    box-shadow: 0 2px 0px darken(color(primary), 10%);
+  }
+}
+
+.c-button--white {
+  color: color(primary);
+  text-shadow: none;
+  background-color: #fff;
+  box-shadow: 0 2px 0px transparentize(#000, .75);
+  transition: box-shadow 150ms ease;
+
+  &:hover {
+    color: color(primary);
+    background-color: #fff;
+    box-shadow: 0 4px 10px transparentize(#000, .75);
+  }
+}
+
+.c-button--outline {
+  background-color: transparent;
+  text-shadow: none;
+  border: 1px solid transparentize(#fff, .25);
+  color: transparentize(#fff, .25);
+  box-shadow: none;
+
+  &:hover {
+    background: transparent;
+    border-color: #fff;
+  }
+}
+
+.c-link {
+  padding: $spacing-unit/4 $spacing-unit/2;
+  color: currentColor;
+
+  &:hover {
+    background-color: transparentize(color(link), .85);
+    text-shadow: 0 1px 0 transparentize(#000, .85);
+  }
+}
+
+.c-link--white {
+  color: #fff;
+
+  &:hover {
+    background-color: transparentize(#000, .85);
+  }
+}

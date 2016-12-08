@@ -1,0 +1,16 @@
+.c-form {
+
+}
+
+.c-input {
+  padding: $spacing-uni/2 $spacing-unit;
+  font-size: 1em;
+  background: #fff;
+  border-radius: $border-radius;
+}
+
+.c-label {
+  font-size: 1em;
+  font-weight: bold;
+  color: color(text--dark);
+}

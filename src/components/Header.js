@@ -16,7 +16,7 @@ class Header extends Component {
 
   render() {
     return (
-      <div>
+      <div className='g-header'>
         <Link to="/">Home</Link>
         <button onClick={this.handleLogout}>Logout</button>
       </div>

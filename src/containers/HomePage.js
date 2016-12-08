@@ -23,7 +23,7 @@ class HomePage extends Component {
       <div>
         <h1>Homepage</h1>
         <ul>
-          {this.props.movies.slice(0, shown).map(movie => (
+          {Boolean(this.props.movies) && this.props.movies.slice(0, shown).map(movie => (
             <li key={movie.movieid}>{movie.label}</li>
           ))}
         </ul>
