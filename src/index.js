@@ -7,6 +7,7 @@ import { browserHistory, Router, Route, IndexRoute } from 'react-router';
 import App from './App';
 import './index.css';
 import HomePage from './containers/HomePage';
+import Movie from './containers/Movie';
 import Login from './containers/Login';
 import SignUp from './containers/SignUp';
 import koviesReducer from './reducers';
@@ -35,6 +36,7 @@ ReactDOM.render(
       <Route path="/signup" component={SignUp} />
       <Route path="/" component={App}>
         <IndexRoute component={HomePage} />
+        <Route path="movie/:id" component={Movie} />
         <Route path="*" component={FourOFour} />
       </Route>
     </Router>

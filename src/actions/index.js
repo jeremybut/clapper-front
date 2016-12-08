@@ -39,7 +39,7 @@ const receiveUserMovies = response => ({
 export const fetchUserMovies = () => (dispatch) => {
   dispatch(requestUserMovies());
 
-  Api.get(`${API_ROOT}/v1/movies`)
+  Api.get('/v1/movies')
     .then(response => response.json())
     .then(response => dispatch(receiveUserMovies(response)));
 }
@@ -70,3 +70,20 @@ export const signupUser = ({ email, password, kodi_username, kodi_password, kodi
 export const logoutUser = () => ({
   type: 'LOGOUT_SUCCESS',
 })
+
+const requestMovie = id => ({
+  type: 'MOVIE_REQUEST',
+  payload: id,
+})
+
+const receiveMovie = payload => ({
+  type: 'MOVIE_SUCCESS',
+  payload,
+});
+
+export const fetchMovie = id => (dispatch) => {
+  dispatch(requestMovie(id));
+
+  Api.fetchMovie(id)
+    .then(response => dispatch(receiveMovie(response.moviedetails)));
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 class HomePage extends Component {
@@ -23,9 +24,15 @@ class HomePage extends Component {
       <div>
         <h1>Homepage</h1>
         <ul>
-          {Boolean(this.props.movies) && this.props.movies.slice(0, shown).map(movie => (
-            <li key={movie.movieid}>{movie.label}</li>
-          ))}
+          {Boolean(this.props.movies) && this.props.movies
+            .slice(0, shown)
+            .map(movie => (
+              <li key={movie.movieid}>
+                <Link to={`/movie/${movie.movieid}`}>
+                  {movie.label}
+                </Link>
+              </li>
+            ))}
         </ul>
         <button onClick={this.loadMore}>Load more</button>
       </div>

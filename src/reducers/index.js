@@ -18,6 +18,17 @@ const kovies = (state = {}, action) => {
         ...state,
         movies: action.payload,
       };
+    case 'MOVIE_SUCCESS':
+      return {
+        ...state,
+        movies: state.movies.map(movie => {
+          if (movie.movieid === action.payload.movieid) {
+            return action.payload;
+          }
+
+          return movie;
+        }),
+      }
     default:
       return state;
   }
