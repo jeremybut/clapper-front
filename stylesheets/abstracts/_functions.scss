@@ -5,3 +5,7 @@
 @function color($color) {
   @return map-get($colors, $color);
 }
+
+@function container($key) {
+  @return map-get($containers, $key);
+}
