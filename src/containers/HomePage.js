@@ -29,7 +29,11 @@ class HomePage extends Component {
             .map(movie => (
               <li key={movie.movieid}>
                 <Link to={`/movie/${movie.movieid}`}>
-                  {movie.label}
+                  {movie.label} <br />
+                  {movie.genre} <br />
+                  {movie.director} <br />
+                  <img src={`http://jeremybut.synology.me:4444/image/`+encodeURIComponent(`${movie.thumbnail}`)} />
+                  <hr />
                 </Link>
               </li>
             ))}
