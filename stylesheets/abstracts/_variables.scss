@@ -1,50 +1,53 @@
 $palette: (
-  anthracite: (
-    default: #737B7F,
-    light: #A1ADB3,
-    dark: #3F557F,
-    darker: #192233,
-  ),
-  brand: (
-    default: #F52C2C, // Red
-    secondary: #FFBB00, // Orange
-  ),
   red: (
-    default: #f2c600, // alerts,
+    default: #F52C2C, // red
   ),
   grey: (
-    default: #F4F4F4,
-  ),
-  green: (
-    default: #48CC8A,
+    default: #cccccc, // clouds
+    light: #ebeef0, // light grey
+    dark: #b8bfc3, // icons
   ),
   blue: (
-    default: #3377FF,
+    default: #3377FF, // links
+    fade: #99A6BF, // text light
+    dark: #3F557F, // text
+    darker: #192233, // text dark
+  ),
+  green: (
+    default: #22a36e, // green 1
+    light: #69c028, // green 2
+    fade: #a8d765, // green 3
+    pale: #e9f5d8, // hover menu
+  ),
+  yellow: (
+    default: #FFBB00, // light yellow
+    warmer: #FFA200, // secondary brand
   ),
 );
 
 $colors: (
-  text: palette(anthracite),
-  text--dark: palette(anthracite, dark),
-  text--darker: palette(anthracite, darker),
+  primary: palette(red),
+  secondary: palette(yellow, warmer),
   link: palette(blue),
-  primary: palette(brand),
-  secondary: palette(brand, secondary),
-  background: palette(grey),
+  text: palette(blue, dark),
+  text--light: palette(blue, fade),
+  text--dark: palette(blue, darker),
 );
 
-$font-headings: 'Oswald', -apple-system, 'Helvetica', serif;
-$font-text: -apple-system, 'Roboto', 'Segoe UI', 'Helvetica Neue', sans-serif;
-$base-line-height: 1.2;
+$font-text: -apple-system, 'Roboto', 'Segoe UI', sans-serif;
+$font-headings: 'Oswald', sans-serif;
 
 $spacing-unit: 16px;
-$container-width: 1200px;
-$container-width--narrow: 768px;
+$container-width: 800px;
+$container-width--narrow: 600px;
 
-$border-radius: 4px;
-
-$global-header-height: 60px;
+$header-height: 60px;
+$global-header-height--large: $header-height;
 $width-mobile-menu: 280px;
+
+$outline-style: 4px solid transparentize(#3377FF, .5);
+$base-line-height: 1.5;
+$border-radius: 12px;
 
 $ratio: 1.414;
 $first-breakpoint: 25em;

@@ -3,6 +3,9 @@
 # dependencies
 node_modules
 
+# tmp
+.sass-cache
+
 # testing
 coverage
 

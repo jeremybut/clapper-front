@@ -1,3 +1,27 @@
 .g-header {
+  background-color: color(primary);
+  width: 100%;
+  min-height: $header-height;
+  padding: $spacing-unit;
+}
 
+.g-header__nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.g-header__navigation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.g-header__list {
+  margin-left: $spacing-unit;
+}
+
+.g-header__link {
+  color: #fff;
 }

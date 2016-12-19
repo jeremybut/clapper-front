@@ -1,0 +1,16 @@
+.g-container {
+  @include container;
+}
+
+.g-container--narrow {
+  width: $container-width--narrow;
+}
+
+.g-container--bare {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.g-container--max {
+  width: 100%;
+}

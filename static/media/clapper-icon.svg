@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>clapper-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFBB00" offset="0%"></stop>
+            <stop stop-color="#E68600" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-2" cx="24" cy="24" r="24"></circle>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.25 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.12 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Clapper" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Index" transform="translate(-26.000000, -14.000000)">
+            <g id="clapper-logo" transform="translate(30.000000, 16.000000)">
+                <g id="clapper-icon">
+                    <g id="Oval-3">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                        <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-2"></use>
+                    </g>
+                    <path d="M32.4530502,12.7293646 L14.2414025,15.7878794 C12.7552204,16.0580537 11.7781271,17.4103767 12.0434264,18.8696902 L12.2062753,19.9861131 L12.2062753,32.6272573 C12.2062753,34.1003773 13.4079184,35.3136312 14.8810011,35.3136312 L33.3252741,35.3136312 C34.7983569,35.3136312 36,34.1003773 36,32.6272573 L36,19.5790653 L16.985942,19.5790653 L35.6860247,16.4042564 C35.6860247,16.4042564 35.5492629,15.0990465 35.5348238,14.9622103 C35.2615979,13.453402 33.9123265,12.4640281 32.4530502,12.7293646 Z M32.5809922,13.4619985 C32.6567229,13.4482292 32.7272436,13.4782238 32.8019323,13.4736465 L34.8603556,15.6483265 C34.8661982,15.7070876 34.8660121,15.7312768 34.8719664,15.7878794 L32.7088971,16.1600203 L30.4644034,13.8224914 L32.5809922,13.4619985 Z M28.2315577,14.1946323 L30.406275,16.5438093 L28.1734293,16.9275611 L25.9638424,14.5784213 L28.2315577,14.1946323 Z M23.6961271,14.9505623 L25.9173248,17.3113128 L23.6147026,17.7067498 L21.4167638,15.3343512 L23.6961271,14.9505623 Z M19.1024936,15.7297138 L21.381857,18.0905015 L19.0792348,18.4742533 L16.8812587,16.1018547 L19.1024936,15.7297138 Z M14.5902846,17.0787247 C15.0675926,17.0787247 15.4624714,17.4619927 15.4625086,17.9393379 C15.4625086,18.4166458 15.0675926,18.7998766 14.5902846,18.7998766 C14.1129766,18.7998766 13.7297087,18.4166458 13.7297087,17.9393379 C13.7297087,17.4619927 14.1129766,17.0787247 14.5902846,17.0787247 Z M14.6368022,20.3233472 L16.9394244,20.3233472 L14.8810011,23.4167689 L12.9505572,23.4167689 L12.9505572,22.8585574 L14.6368022,20.3233472 Z M19.2536573,20.3233472 L21.5563166,20.3233472 L19.4978934,23.4167689 L17.1836605,23.4167689 L19.2536573,20.3233472 Z M23.8589015,20.3233472 L26.1615609,20.3233472 L24.1031376,23.4167689 L21.8005155,23.4167689 L23.8589015,20.3233472 Z M28.4641458,20.3233472 L30.7668051,20.3233472 L28.7083819,23.4167689 L26.4057598,23.4167689 L28.4641458,20.3233472 Z M33.081038,20.3233472 L35.2557181,20.3233472 L35.2557181,20.5094177 L33.3252741,23.4167689 L31.011004,23.4167689 L33.081038,20.3233472 Z" id="Shape" fill="#192233"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
