@@ -10,7 +10,7 @@ import HomePage from './containers/HomePage';
 import Movie from './containers/Movie';
 import Login from './containers/Login';
 import SignUp from './containers/SignUp';
-import koviesReducer from './reducers';
+import clapperReducer from './reducers';
 import { loadState, saveState } from './api/localStorage';
 
 const persistedState = loadState();
@@ -18,7 +18,7 @@ const createStoreWithMiddleware = applyMiddleware(
   thunkMiddleware,
 )(createStore);
 const store = createStoreWithMiddleware(
-  koviesReducer,
+  clapperReducer,
   persistedState,
   window.devToolsExtension && window.devToolsExtension()
 );
