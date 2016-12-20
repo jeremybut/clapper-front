@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import RecentMovies from '../components/RecentMovies';
+import MovieThumbnail from '../components/MovieThumbnail';
 
 class HomePage extends Component {
   constructor() {
@@ -28,17 +30,13 @@ class HomePage extends Component {
             .slice(0, shown)
             .map(movie => (
               <li key={movie.movieid}>
-                <Link to={`/movie/${movie.movieid}`}>
-                  {movie.label} <br />
-                  {movie.genre} <br />
-                  {movie.director} <br />
-                  <img src={`http://jeremybut.synology.me:4444/image/`+encodeURIComponent(`${movie.thumbnail}`)} />
-                  <hr />
-                </Link>
+                <MovieThumbnail movie={movie} />
               </li>
             ))}
         </ul>
         <button onClick={this.loadMore}>Load more</button>
+        <hr />
+        <RecentMovies />
       </div>
     );
   }
@@ -46,6 +44,7 @@ class HomePage extends Component {
 
 const mapStateToProps = state => ({
   movies: state.movies,
+  recentMovies: state.recent_movies,
 })
 
 export default connect(mapStateToProps)(HomePage);

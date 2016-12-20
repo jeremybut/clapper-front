@@ -7,7 +7,6 @@ import { browserHistory, Router, Route, IndexRoute } from 'react-router';
 import App from './App';
 import './index.css';
 import HomePage from './containers/HomePage';
-import RecentMovies from './containers/RecentMovies';
 import Movie from './containers/Movie';
 import Login from './containers/Login';
 import SignUp from './containers/SignUp';
@@ -37,7 +36,6 @@ ReactDOM.render(
       <Route path="/signup" component={SignUp} />
       <Route path="/" component={App}>
         <IndexRoute component={HomePage} />
-        <Route path="recent-movies" component={RecentMovies} />
         <Route path="movie/:id" component={Movie} />
         <Route path="*" component={FourOFour} />
       </Route>
