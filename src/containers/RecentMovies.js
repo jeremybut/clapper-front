@@ -2,30 +2,17 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-class HomePage extends Component {
+class RecentMovies extends Component {
   constructor() {
     super();
-
-    this.state = {
-      shown: 10,
-    };
-
-    this.loadMore = this.loadMore.bind(this);
-  }
-
-  loadMore() {
-    this.setState({ shown: this.state.shown + 10 });
   }
 
   render() {
-    const { shown } = this.state;
-
     return (
       <div>
-        <h1>Movies</h1>
+        <h1>Recent Movies</h1>
         <ul>
-          {Boolean(this.props.movies) && this.props.movies
-            .slice(0, shown)
+          {Boolean(this.props.recent_movies) && this.props.recent_movies
             .map(movie => (
               <li key={movie.movieid}>
                 <Link to={`/movie/${movie.movieid}`}>
@@ -38,14 +25,13 @@ class HomePage extends Component {
               </li>
             ))}
         </ul>
-        <button onClick={this.loadMore}>Load more</button>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  movies: state.movies,
+  recent_movies: state.recent_movies,
 })
 
-export default connect(mapStateToProps)(HomePage);
+export default connect(mapStateToProps)(RecentMovies);

@@ -12,7 +12,12 @@ const kovies = (state = {}, action) => {
       return {
         ...state,
         user: null,
-      }
+      };
+    case 'RECENT_MOVIES_SUCCESS':
+      return {
+        ...state,
+        recent_movies: action.payload,
+      };
     case 'MOVIES_SUCCESS':
       return {
         ...state,

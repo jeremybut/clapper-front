@@ -1,6 +1,8 @@
 import { browserHistory } from 'react-router';
 import * as Api from '../api/api';
 import { API_ROOT } from '../constants';
+
+// Login
 const requestLogin = () => ({
   type: 'LOGIN_REQUEST',
 });
@@ -27,23 +29,7 @@ export const loginUser = ({ email, password }) => (dispatch) => {
     });
 }
 
-const requestUserMovies = () => ({
-  type: 'MOVIES_REQUEST',
-});
-
-const receiveUserMovies = response => ({
-  type: 'MOVIES_SUCCESS',
-  payload: response.movies,
-});
-
-export const fetchUserMovies = () => (dispatch) => {
-  dispatch(requestUserMovies());
-
-  Api.get('/v1/movies')
-    .then(response => response.json())
-    .then(response => dispatch(receiveUserMovies(response)));
-}
-
+// Signup
 const requestSignup = () => ({
   type: 'SIGNUP_REQUEST',
 });
@@ -67,10 +53,48 @@ export const signupUser = ({ email, password, kodi_username, kodi_password, kodi
   })
 };
 
+// Logout
 export const logoutUser = () => ({
   type: 'LOGOUT_SUCCESS',
 })
 
+// Movies
+const requestMovies = () => ({
+  type: 'MOVIES_REQUEST',
+});
+
+const receiveMovies = response => ({
+  type: 'MOVIES_SUCCESS',
+  payload: response.movies,
+});
+
+export const fetchMovies = () => (dispatch) => {
+  dispatch(requestMovies());
+
+  Api.get('/v1/movies')
+    .then(response => response.json())
+    .then(response => dispatch(receiveMovies(response)));
+};
+
+// Recent Movies
+const requestRecentMovies = () => ({
+  type: 'RECENT_MOVIES_REQUEST',
+});
+
+const receiveRecentMovies = response => ({
+  type: 'RECENT_MOVIES_SUCCESS',
+  payload: response.movies,
+});
+
+export const fetchRecentMovies = () => (dispatch) => {
+  dispatch(requestRecentMovies());
+
+  Api.get('/v1/movies?event=GetRecentlyAddedMovies')
+    .then(response => response.json())
+    .then(response => dispatch(receiveRecentMovies(response)));
+}
+
+// Movie
 const requestMovie = id => ({
   type: 'MOVIE_REQUEST',
   payload: id,
