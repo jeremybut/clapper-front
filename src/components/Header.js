@@ -29,6 +29,9 @@ class Header extends Component {
               <Link to="/" className='g-header__link'>Home</Link>
             </li>
             <li className='g-header__list'>
+              <Link to="/recent-movies" className='g-header__link'>Recent Movies</Link>
+            </li>
+            <li className='g-header__list'>
               <button className='c-button' onClick={this.handleLogout}>Logout</button>
             </li>
           </ul>

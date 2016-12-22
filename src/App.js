@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import Header from './components/Header';
-import { fetchUserMovies } from './actions';
+import { fetchMovies, fetchRecentMovies } from './actions';
 import './App.css';
 
 class App extends Component {
@@ -17,7 +17,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchUserMovies();
+    this.props.fetchMovies();
+    this.props.fetchRecentMovies();
   }
 
   componentDidUpdate(prevProps) {
@@ -57,7 +58,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchUserMovies: () => dispatch(fetchUserMovies()),
+  fetchMovies: () => dispatch(fetchMovies()),
+  fetchRecentMovies: () => dispatch(fetchRecentMovies()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,4 +1,4 @@
-const kovies = (state = {}, action) => {
+const clapper = (state = {}, action) => {
   switch (action.type) {
     case 'LOGIN_SUCCESS':
       return {
@@ -12,7 +12,12 @@ const kovies = (state = {}, action) => {
       return {
         ...state,
         user: null,
-      }
+      };
+    case 'RECENT_MOVIES_SUCCESS':
+      return {
+        ...state,
+        recent_movies: action.payload,
+      };
     case 'MOVIES_SUCCESS':
       return {
         ...state,
@@ -34,4 +39,4 @@ const kovies = (state = {}, action) => {
   }
 };
 
-export default kovies;
+export default clapper;
