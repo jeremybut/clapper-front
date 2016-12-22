@@ -5,6 +5,7 @@ node_modules
 
 # tmp
 .sass-cache
+stylesheets/npm-debug.log*
 
 # testing
 coverage
