@@ -9,11 +9,12 @@
 
 @import 'layouts/global';
 @import 'layouts/header';
+@import 'layouts/grid';
 
 @import 'components/buttons';
 @import 'components/forms';
+@import 'components/movie-thumbnail';
 
-@import 'pages/login';
-@import 'pages/signup';
+@import 'pages/authentication';
 
 @import 'shame/shame';

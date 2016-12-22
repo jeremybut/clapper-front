@@ -30,3 +30,19 @@
     width: $container-width;
   }
 }
+
+@mixin widths($columns, $breakpoint: null) {
+  @each $denominator in $columns {
+    @if ($denominator == 1) {
+      .u#{$breakpoint}-1\/1 {
+        width: 100% !important;
+      }
+    } @else {
+      @for $numerator from 1 to $denominator {
+        .u#{$breakpoint}-#{$numerator}\/#{$denominator} {
+          width: ($numerator / $denominator) * 100% !important;
+        }
+      }
+    }
+  }
+}

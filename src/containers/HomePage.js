@@ -25,16 +25,16 @@ class HomePage extends Component {
     return (
       <div>
         <h1>Movies</h1>
-        <ul>
+        <ul className='u-grid'>
           {Boolean(this.props.movies) && this.props.movies
             .slice(0, shown)
             .map(movie => (
-              <li key={movie.movieid}>
+              <li key={movie.movieid} className='u-1-2'>
                 <MovieThumbnail movie={movie} />
               </li>
             ))}
         </ul>
-        <button onClick={this.loadMore}>Load more</button>
+        <button onClick={this.loadMore} className='c-button'>Load more</button>
         <hr />
         <RecentMovies />
       </div>
