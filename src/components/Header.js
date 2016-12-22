@@ -21,7 +21,9 @@ class Header extends Component {
         <nav className='g-header__nav'>
           <ul className='g-header__navigation'>
             <li>
-              <img src={logo} alt='Logo Clapper' />
+              <Link to='/'>
+                <img src={logo} alt='Logo Clapper' />
+              </Link>
             </li>
           </ul>
           <ul className='g-header__navigation'>

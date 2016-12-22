@@ -11,7 +11,7 @@ $palette: (
     default: #3377FF, // links
     fade: #99A6BF, // text light
     dark: #3F557F, // text
-    darker: #192233, // text dark
+    darker: #192233, // text darker
   ),
   green: (
     default: #22a36e, // green 1
@@ -45,7 +45,7 @@ $header-height: 60px;
 $global-header-height--large: $header-height;
 $width-mobile-menu: 280px;
 
-$outline-style: 4px solid transparentize(#3377FF, .5);
+$outline-style: 4px solid transparentize(color(secondary), .5);
 $base-line-height: 1.5;
 $border-radius: 10px;
 

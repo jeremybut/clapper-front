@@ -39,6 +39,16 @@ a {
   line-height: $base-line-height;
 }
 
+a,
+button,
+input,
+textarea {
+  &:focus,
+  &:active {
+    outline: $outline-style;
+  }
+}
+
 ul {
   padding: 0;
   margin: 0;
