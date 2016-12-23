@@ -27,31 +27,39 @@ class Signup extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Signup</h1>
-        <form onSubmit={this.handleFormSubmit}>
-          <p>
-            <input type="email" ref="email" />
-          </p>
-          <p>
-            <input type="text" ref="password" />
-          </p>
-          <p>
-            <input type="text" ref="kodiHost" />
-          </p>
-          <p>
-            <input type="text" ref="kodiPort" />
-          </p>
-          <p>
-            <input type="text" ref="kodiUsername" />
-          </p>
-          <p>
-            <input type="text" ref="kodiPassword" />
-          </p>
-          <button type="submit">Go</button>
-        </form>
+      <div className='p-authentication'>
+        <div className='g-container'>
+          <h1 className='p-authentication__title'>Signup</h1>
+          <form onSubmit={this.handleFormSubmit}>
+            <div className='c-form-group'>
+              <label>Email</label>
+              <input type="email" ref="email" />
+            </div>
+            <div className='c-form-group'>
+              <label>Mot de passe</label>
+              <input type="text" ref="password" />
+            </div>
+            <div className='c-form-group'>
+              <label>Kodi Host</label>
+              <input type="text" ref="kodiHost" />
+            </div>
+            <div className='c-form-group'>
+              <label>Kodi Port</label>
+              <input type="text" ref="kodiPort" />
+            </div>
+            <div className='c-form-group'>
+              <label>Kodi Username</label>
+              <input type="text" ref="kodiUsername" />
+            </div>
+            <div className='c-form-group'>
+              <label>Kodi Mot de passe</label>
+              <input type="text" ref="kodiPassword" />
+            </div>
+            <button type="submit">S'inscrire</button>
+          </form>
+        </div>
       </div>
-      );
+    );
   }
 }
 

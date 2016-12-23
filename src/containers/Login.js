@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import { loginUser } from '../actions';
 import logo from '../../static/media/clapper-icon.svg';
 
@@ -26,8 +27,10 @@ class Login extends Component {
     return (
       <div className='p-authentication'>
         <div className='g-container'>
-          <img src={logo} alt='Logo Clapper' />
-          <h1 className='p-authentication__title' id='p-authentication__title'>Login</h1>
+          <Link to='/'>
+            <img src={logo} alt='Logo Clapper' />
+          </Link>
+          <h1 className='p-authentication__title'>Login</h1>
           <form onSubmit={this.handleFormSubmit}>
             <div className='c-form-group'>
               <label className='c-label'>Email</label>
@@ -37,7 +40,7 @@ class Login extends Component {
               <label className='c-label'>Mot de passe</label>
               <input type="text" ref="password" className='c-input' />
             </div>
-            <button type="submit" className='c-button'>Go</button>
+            <button type="submit" className='c-button'>Se connecter</button>
           </form>
         </div>
       </div>

@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.7.0"
+    "react-scripts": "0.7.0",
+    "foreman": "^2.0.0"
   },
   "dependencies": {
     "concurrently": "^3.1.0",
@@ -17,10 +18,11 @@
     "sanitize.css": "^4.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "prestart": "source .env && npm run stylesheets",
+    "start": "nf start -j Procfile",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "stylesheets": "node-sass ./stylesheets/App.scss -w -r -o ./src"
+    "stylesheets": "node-sass ./stylesheets/App.scss -r -o ./src"
   }
 }
