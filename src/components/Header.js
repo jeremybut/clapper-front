@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { logoutUser } from '../actions';
+
+import { logout } from '../actions/logout';
 import logo from '../../static/media/clapper-logo.svg';
 
 class Header extends Component {
@@ -12,7 +13,7 @@ class Header extends Component {
   }
 
   handleLogout() {
-    this.props.logout();
+    this.props.dispatchLogout();
   }
 
   render() {
@@ -44,7 +45,7 @@ class Header extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logoutUser()),
+  dispatchLogout: () => dispatch(logout()),
 });
 
 export default connect(null, mapDispatchToProps)(Header);

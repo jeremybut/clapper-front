@@ -3,12 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.7.0",
-    "foreman": "^2.0.0"
+    "foreman": "^2.0.0",
+    "react-scripts": "0.7.0"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "concurrently": "^3.1.0",
+    "node-polyglot": "^2.2.2",
     "node-sass": "^3.13.0",
+    "node-uuid": "^1.4.8",
     "react": "^15.4.0",
     "react-dom": "^15.4.0",
     "react-redux": "^4.4.6",

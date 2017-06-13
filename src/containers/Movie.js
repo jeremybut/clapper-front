@@ -1,38 +1,32 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchMovie } from '../actions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+
+import { fetchMovie } from "../actions/movie";
+import withI18n from '../components/Ui/withI18n';
 
 class Movie extends Component {
- constructor(props) {
-   super(props);
-   this.state = {
+  constructor(props) {
+    super(props);
+    this.state = {
+      movie: this.props.movieById[this.props.params.id],
+    }
+  }
 
-   };
- }
+  render() {
+    const { movie } = this.state;
 
- componentDidMount() {
-  setTimeout(() => this.props.fetchMovie(this.props.params.id), 1000);
- }
-
- render() {
-  const { movies, params } = this.props;
-  const movie = (movies || [])
-    .find(m => Number(m.movieid) === Number(params.id));
-
-   return (
-     <pre>
-      {JSON.stringify(movie, null, 2)}
-     </pre>
-   );
- }
+    return (
+      <pre>
+        {JSON.stringify(movie, null, 2)}
+      </pre>
+    );
+  }
 }
 
 const mapStateToProps = state => ({
-  movies: state.movies,
+  movieById: state.movies.movieById,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchMovie: id => dispatch(fetchMovie(id)),
-})
+const mapDispatchToProps = () => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Movie);
+export default connect(mapStateToProps, mapDispatchToProps)(withI18n(Movie));

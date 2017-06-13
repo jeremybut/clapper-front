@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
+
 import Header from './components/Header';
-import { fetchMovies, fetchRecentMovies } from './actions';
+import { fetchMovies, fetchRecentMovies } from './actions/movies';
 import './App.css';
 
 class App extends Component {
@@ -17,8 +18,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchMovies();
-    this.props.fetchRecentMovies();
+    this.props.dispatchFetchMovies();
+    this.props.dispatchFetchRecentMovies();
   }
 
   componentDidUpdate(prevProps) {
@@ -32,7 +33,6 @@ class App extends Component {
       browserHistory.push('/login');
     }
   }
-
 
   handleClick(e) {
     console.log(e.nativeEvent);
@@ -58,8 +58,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchMovies: () => dispatch(fetchMovies()),
-  fetchRecentMovies: () => dispatch(fetchRecentMovies()),
+  dispatchFetchMovies: () => dispatch(fetchMovies()),
+  dispatchFetchRecentMovies: () => dispatch(fetchRecentMovies()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

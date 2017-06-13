@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { loginUser } from '../actions';
+
+import { loginUser } from '../actions/login';
 import logo from '../../static/media/clapper-icon.svg';
+import withI18n from '../components/Ui/withI18n';
 
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
@@ -17,10 +17,12 @@ class Login extends Component {
   handleFormSubmit(e) {
     e.preventDefault();
 
-    this.props.loginUser({
+    const payload = {
       email: this.refs.email.value,
       password: this.refs.password.value,
-    });
+    }
+
+    this.props.dispatchLogin(payload);
   }
 
   render() {
@@ -48,11 +50,10 @@ class Login extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-});
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = dispatch => ({
-  loginUser: ({ email, password }) => dispatch(loginUser({ email, password })),
+  dispatchLogin: (payload) => dispatch(loginUser(payload)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(withI18n(Login));

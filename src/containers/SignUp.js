@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { signupUser } from '../actions';
+
+import { signup } from '../actions/signup';
+import withI18n from '../components/Ui/withI18n';
 
 class Signup extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
@@ -15,14 +15,16 @@ class Signup extends Component {
   handleFormSubmit(e) {
     e.preventDefault();
 
-    this.props.signupUser({
+    const payload = {
       email: this.refs.email.value,
       password: this.refs.password.value,
       kodi_host: this.refs.kodiHost.value,
       kodi_port: this.refs.kodiPort.value,
       kodi_username: this.refs.kodiUsername.value,
       kodi_password: this.refs.kodiPassword.value,
-    });
+    }
+
+    this.props.signup(payload);
   }
 
   render() {
@@ -63,15 +65,10 @@ class Signup extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-});
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = dispatch => ({
-  signupUser: ({
-    email, password, kodi_host, kodi_port, kodi_username, kodi_password
-  }) => dispatch(signupUser({
-    email, password, kodi_host, kodi_port, kodi_username, kodi_password
-  })),
+  dispatchSignup: (payload) => dispatch(signup(payload)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(withI18n(Signup));

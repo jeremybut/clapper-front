@@ -1,42 +1,15 @@
-const clapper = (state = {}, action) => {
-  switch (action.type) {
-    case 'LOGIN_SUCCESS':
-      return {
-        ...state,
-        user: {
-          ...state.user,
-          token: action.token,
-        },
-      };
-    case 'LOGOUT_SUCCESS':
-      return {
-        ...state,
-        user: null,
-      };
-    case 'RECENT_MOVIES_SUCCESS':
-      return {
-        ...state,
-        recent_movies: action.payload,
-      };
-    case 'MOVIES_SUCCESS':
-      return {
-        ...state,
-        movies: action.payload,
-      };
-    case 'MOVIE_SUCCESS':
-      return {
-        ...state,
-        movies: state.movies.map(movie => {
-          if (movie.movieid === action.payload.movieid) {
-            return action.payload;
-          }
+import { combineReducers } from 'redux';
 
-          return movie;
-        }),
-      }
-    default:
-      return state;
-  }
-};
+import movies from './movies';
+import recentMovies from './recentMovies';
+import user from './user';
+import snacks from './snacks';
+
+const clapper = combineReducers({
+  movies,
+  recentMovies,
+  snacks,
+  user,
+});
 
 export default clapper;
