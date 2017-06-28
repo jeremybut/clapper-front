@@ -35,7 +35,7 @@ $colors: (
 );
 
 $font-default-sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", sans-serif;
-$font-text: -apple-system, 'Roboto', 'Segoe UI', sans-serif;
+$font-text: $font-default-sans-serif;
 $font-headings: $font-default-sans-serif;
 
 $spacing-unit: 16px;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link as RawLink } from 'react-router';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ui, spacing } from '../ui';
 
 import { logout } from '../actions/logout';
@@ -10,7 +10,7 @@ import logo from '../../static/media/clapper-logo.svg';
 const Wrapper = styled.header`
   background-color: ${ui('primary')};
   width: 100%;
-  padding: ${spacing/1.5};
+  padding: ${spacing()};
 `;
 
 const Nav = styled.nav`
@@ -27,7 +27,11 @@ const NavigationList = styled.ul`
 `;
 
 const NavigationItem = styled.li`
-  margin-left: ${spacing};
+  margin-left: ${spacing()};
+
+  ${props => props.logo && css`
+    margin-right: ${spacing(3)};
+  `}
 `;
 
 const Link = styled(RawLink)`
@@ -50,21 +54,19 @@ class Header extends Component {
       <Wrapper>
         <Nav>
           <NavigationList>
-            <li>
+            <NavigationItem logo>
               <Link to='/'>
                 <img src={logo} alt='Logo Clapper' />
               </Link>
-            </li>
+            </NavigationItem>
+            <NavigationItem>
+              <Link to="/">Accueil</Link>
+            </NavigationItem>
           </NavigationList>
           <NavigationList>
+
             <NavigationItem>
-              <Link to="/">Home</Link>
-            </NavigationItem>
-            <NavigationItem>
-              <Link to="/recent-movies">Recent Movies</Link>
-            </NavigationItem>
-            <NavigationItem>
-              <button className='c-button' onClick={this.handleLogout}>Logout</button>
+              <button onClick={this.handleLogout}>Se déconnecter</button>
             </NavigationItem>
           </NavigationList>
         </Nav>

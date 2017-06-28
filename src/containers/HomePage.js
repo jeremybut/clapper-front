@@ -1,9 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import values from 'lodash';
+import styled from 'styled-components';
+import { ui, spacing, Container } from '../ui';
 
 import withI18n from '../components/Ui/withI18n';
 import MovieThumbnail from '../components/MovieThumbnail';
+
+const HeaderList = styled.header`
+  display: flex;
+  align-items: baseline;
+
+  a {
+    color: #fff;
+    font-size: 1.125rem;
+  }
+`;
+
+const HeadingList = styled.h2`
+  font-size: 2rem;
+  margin-right: ${spacing(2)};
+`;
+
+const MoviesList = styled.ul`
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+`;
+
+const MovieItem = styled.li`
+  margin-right: ${spacing(3)};
+  margin-bottom: ${spacing(5)};
+  flex: 0 0 10%;
+`;
 
 function renderMovies(movies) {
   if (movies.length > 0) {
@@ -16,9 +46,9 @@ function renderMovies(movies) {
 
 const Movie = ({movie}) => {
   return (
-    <li key={movie.movieid} className='u-1-2'>
+    <MovieItem key={movie.movieid}>
       <MovieThumbnail movie={movie} />
-    </li>
+    </MovieItem>
   );
 };
 
@@ -31,13 +61,27 @@ class HomePage extends Component {
     const allMovies = renderMovies(Array.from(values(movieById)));
     const OtherMovies = renderMovies(Array.from(values(recentMovieById)));
     return (
-      <div>
-        <h1>Movies</h1>
-        <ul className='u-grid'>{ allMovies }</ul>
+      <Container>
+        <section>
+          <HeaderList>
+            <HeadingList>Ma bibliothèque</HeadingList>
+            <Link to=''>Voir tout</Link>
+          </HeaderList>
+          <MoviesList>
+            { allMovies }
+          </MoviesList>
+        </section>
 
-        <h1>Recent Movies</h1>
-        <ul className='u-grid'>{ OtherMovies }</ul>
-      </div>
+        <section>
+          <HeaderList>
+            <HeadingList>Récemment ajouté</HeadingList>
+            <Link to=''>Voir tout</Link>
+          </HeaderList>
+          <MoviesList>
+            { OtherMovies }
+          </MoviesList>
+        </section>
+      </Container>
     );
   }
 }
