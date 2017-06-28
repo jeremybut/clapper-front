@@ -34,8 +34,9 @@ $colors: (
   text--dark: palette(blue, darker),
 );
 
+$font-default-sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", sans-serif;
 $font-text: -apple-system, 'Roboto', 'Segoe UI', sans-serif;
-$font-headings: 'Oswald', sans-serif;
+$font-headings: $font-default-sans-serif;
 
 $spacing-unit: 16px;
 $container-width: 800px;
@@ -46,8 +47,8 @@ $global-header-height--large: $header-height;
 $width-mobile-menu: 280px;
 
 $outline-style: 4px solid transparentize(color(secondary), .5);
-$base-line-height: 1.5;
-$border-radius: 10px;
+$base-line-height: 1.8;
+$border-radius: 4px;
 
 $ratio: 1.414;
 $first-breakpoint: 25em;

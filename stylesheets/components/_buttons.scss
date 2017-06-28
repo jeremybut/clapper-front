@@ -1,32 +1,17 @@
 .c-button {
-  padding: $spacing-unit/(1.5) $spacing-unit;
-  background-image:
-    linear-gradient(
-      palette(yellow),
-      palette(yellow, warmer)
-    );
+  padding: ($spacing-unit/2.5) $spacing-unit;
+  background-color: color(secondary);
   border-radius: $border-radius;
-  text-shadow: 0 1px 2px rgba(0,0,0,.35);
-  box-shadow:
-    inset 0 -1px 0px transparentize(#FFF, .65),
-    inset 0 1px 0 transparentize(#FFF, .35),
-    0 2px 0 transparentize(#000, .88),
-    0 4px 4px transparentize(#000, .75);
   color: #fff;
-  transition: background-image 150ms ease;
+  transition: background-color 150ms ease;
   text-align: center;
-  font-weight: bold;
   line-height: $base-line-height;
   display: inline-block;
-  vertical-align: baseline;
+  vertical-align: middle;
 
   &:hover {
     color: #fff;
-    background-image:
-      linear-gradient(
-        palette(yellow),
-        palette(yellow)
-      );
+    background-color: lighten(color(secondary), 5%);
   }
 }
 
