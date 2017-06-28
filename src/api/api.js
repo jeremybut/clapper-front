@@ -18,7 +18,7 @@ export const get = uri => {
     method: 'get',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user.token}`,
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user.access_token}`,
     },
   }).then(handleErrors);
 };
@@ -28,7 +28,7 @@ export const post = (uri, payload = {}) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user.token}`,
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user.access_token}`,
     },
     body: JSON.stringify(payload),
   }).then(handleErrors);
@@ -39,7 +39,7 @@ export const put = (uri, payload = {}) => {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user.token}`,
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user.access_token}`,
     },
     body: JSON.stringify(payload),
   }).then(handleErrors);
@@ -50,7 +50,7 @@ export const patch = (uri, payload = {}) => {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user.token}`,
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user.access_token}`,
     },
     body: JSON.stringify(payload),
   }).then(handleErrors);
@@ -61,7 +61,7 @@ export const destroy = (uri, id) => {
     method: 'delete',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user.token}`,
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user.access_token}`,
     },
   }).then(handleErrors);
 };

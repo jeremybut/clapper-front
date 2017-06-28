@@ -29,7 +29,7 @@ class App extends Component {
   disconnectIfNotLoggedIn() {
     const { user } = this.props;
 
-    if (!user || !user.token) {
+    if (!user || !user.access_token) {
       browserHistory.push('/login');
     }
   }
