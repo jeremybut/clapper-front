@@ -8,23 +8,6 @@ import { loginUser } from '../actions/login';
 import logo from '../../static/media/clapper-icon.svg';
 import withI18n from '../components/Ui/withI18n';
 
-const Title = styled.h1`
-
-`;
-
-const Container = RawContainer.extend`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Box = styled.div`
-  display: flex;
-  padding: ${spacing(2)};
-  border-radius: 8px;
-  background-color: rgba(0,0,0,.35);
-`;
-
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -55,15 +38,13 @@ class Login extends Component {
           <form onSubmit={this.handleFormSubmit}>
             <div>
               <label>Email</label>
-              <input type="email" ref="email"/>
+              <input type="email" ref="email" />
             </div>
             <div>
               <label>Mot de passe</label>
-              <input type="text" ref="password"/>
+              <input type="text" ref="password" />
             </div>
-            <button type="submit">
-              Se connecter
-            </button>
+            <button type="submit">Se connecter</button>
           </form>
         </Box>
       </Container>

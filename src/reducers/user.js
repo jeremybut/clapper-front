@@ -7,10 +7,7 @@ const user = (state = {}, action) => {
     case types.LOGIN_SUCCESS:
       return {
         ...state,
-        token: action.token,
-        email: action.email,
-        fullname: action.fullname,
-        id: action.id,
+        ...action.payload,
       };
     case types.LOGOUT_SUCCESS:
       return initialState;

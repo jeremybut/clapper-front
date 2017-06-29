@@ -26,7 +26,7 @@ const ThumbnailTitle = styled.h2`
 `;
 
 const MovieThumbnail = props => {
-  const { movie } = props;
+  const { movie, user } = props;
 
   return (
     <Thumbnail to={`/movie/${movie.movieid}`}>

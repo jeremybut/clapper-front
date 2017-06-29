@@ -9,11 +9,9 @@ const requestLogin = () => ({
   type: types.LOGIN_REQUEST,
 });
 
-const receiveLoginSuccess = response => ({
+const receiveLoginSuccess = payload => ({
   type: types.LOGIN_SUCCESS,
-  token: response.access_token,
-  email: response.email,
-  id: response.id,
+  payload,
 });
 
 const receiveLoginError = payload => ({
