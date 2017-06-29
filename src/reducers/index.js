@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as reduxFormReducer } from 'redux-form';
 
 import movies from './movies';
 import recentMovies from './recentMovies';
@@ -10,6 +11,7 @@ const clapper = combineReducers({
   recentMovies,
   snacks,
   user,
+  form: reduxFormReducer,
 });
 
 export default clapper;
