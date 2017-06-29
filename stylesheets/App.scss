@@ -1,20 +1,9 @@
 @import 'abstracts/functions';
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
-@import 'abstracts/utils';
 
 @import 'vendors/sanitize';
 
 @import 'base/base';
 
-@import 'layouts/global';
-@import 'layouts/header';
-@import 'layouts/grid';
-
 @import 'components/buttons';
-@import 'components/forms';
-@import 'components/movie-thumbnail';
-
-@import 'pages/authentication';
-
-@import 'shame/shame';

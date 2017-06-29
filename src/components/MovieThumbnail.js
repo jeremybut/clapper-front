@@ -1,18 +1,43 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link as RawLink } from 'react-router';
+import styled from 'styled-components';
+import { ui, color, spacing, container } from '../ui';
+
+const Thumbnail = styled(RawLink)`
+  color: #fff;
+
+  img {
+    width: 100%;
+    margin-bottom: ${spacing()};
+  }
+`;
+
+const ThumbnailGender = styled.button`
+  border: 1px solid #fff;
+  border-radius: 4px;
+  padding: ${spacing(0.2)} ${spacing(0.5)};
+  font-size: .875rem;
+`;
+
+const ThumbnailTitle = styled.h2`
+  font-size: 1rem;
+  font-weight: normal;
+  margin-top: 0;
+`;
 
 const MovieThumbnail = props => {
   const { movie, user } = props;
 
   return (
-    <Link to={`/movie/${movie.movieid}`} className='c-movie-thumbnail'>
+    <Thumbnail to={`/movie/${movie.movieid}`}>
       <img
         src={`http://jeremybut.synology.me:8081/image/`+encodeURIComponent(`${movie.thumbnail}`)}
-        className="c-movie-thumbnail__poster"
       />
-      <span className='c-movie-thumbnail__title'>{movie.label}</span>
-      <span className='c-movie-thumbnail__gender'>{movie.genre}</span>
-    </Link>
+      { false &&
+        <ThumbnailGender>{movie.genre}</ThumbnailGender>
+      }
+      <ThumbnailTitle>{movie.label}</ThumbnailTitle>
+    </Thumbnail>
   );
 }
 

@@ -3,50 +3,41 @@ html {
 }
 
 body {
-  color: color(text);
+  font-family: $font-text;
+  color: #fff;
+  background-color: #222B31;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: $font-headings;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  color: color(text--dark);
-  font-weight: bold;
-}
+// h1,
+// h2,
+// h3,
+// h4 {
+//   font-family: $font-headings;
+//   letter-spacing: -1px;
+//   color: color(text--dark);
+//   font-weight: bold;
+// }
 
-h1 {
-  font-size: 3em;
-}
+// h1 {
+//   font-size: 3em;
+// }
 
-h2 {
-  font-size: 1.75em;
-}
+// h2 {
+//   font-size: 1.75em;
+// }
 
-h3 {
-  font-size: 1.5em;
-}
+// h3 {
+//   font-size: 1.5em;
+// }
 
-h4 {
-  font-size: 1.25em;
-}
+// h4 {
+//   font-size: 1.25em;
+// }
 
 a {
   text-decoration: none;
   color: color(link);
   line-height: $base-line-height;
-}
-
-a,
-button,
-input,
-textarea {
-  &:focus,
-  &:active {
-    outline: $outline-style;
-  }
 }
 
 ul {
