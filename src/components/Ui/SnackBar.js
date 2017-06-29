@@ -38,15 +38,23 @@ class SnackBar extends Component {
 
       if (isEmpty(nextSnack)) {
         this.setState({ snackbarIsActive: false });
-        setTimeout(() => this.setState({
-          activeSnack: {},
-        }), switchActiveIn);
+        setTimeout(
+          () =>
+            this.setState({
+              activeSnack: {},
+            }),
+          switchActiveIn,
+        );
       } else {
         this.setState({ snackbarIsActive: false });
-        setTimeout(() => this.setState({
-          activeSnack: nextSnack,
-          snackbarIsActive: true,
-        }), switchActiveIn);
+        setTimeout(
+          () =>
+            this.setState({
+              activeSnack: nextSnack,
+              snackbarIsActive: true,
+            }),
+          switchActiveIn,
+        );
         this.handleWillDismiss(nextSnack);
       }
     }

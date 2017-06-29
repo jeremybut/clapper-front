@@ -37,14 +37,11 @@ const MovieItem = styled.li`
 
 function renderMovies(movies) {
   if (movies.length > 0) {
-    return movies.map((movie, index) => (
-      <Movie key={index} movie={movie} />
-    ));
-  }
-  else return [];
+    return movies.map((movie, index) => <Movie key={index} movie={movie} />);
+  } else return [];
 }
 
-const Movie = ({movie}) => {
+const Movie = ({ movie }) => {
   return (
     <MovieItem key={movie.movieid}>
       <MovieThumbnail movie={movie} />
@@ -64,21 +61,20 @@ class HomePage extends Component {
       <Container>
         <section>
           <HeaderList>
-            <HeadingList>Ma bibliothèque</HeadingList>
-            <Link to=''>Voir tout</Link>
+            <HeadingList>Récemment ajouté</HeadingList>
+            <Link to="">Voir tout</Link>
           </HeaderList>
           <MoviesList>
-            { allMovies }
+            {OtherMovies}
           </MoviesList>
         </section>
-
         <section>
           <HeaderList>
-            <HeadingList>Récemment ajouté</HeadingList>
-            <Link to=''>Voir tout</Link>
+            <HeadingList>Toute ma bibliothèque</HeadingList>
+            <Link to="">Voir tout</Link>
           </HeaderList>
           <MoviesList>
-            { OtherMovies }
+            {allMovies}
           </MoviesList>
         </section>
       </Container>
@@ -89,8 +85,8 @@ class HomePage extends Component {
 const mapStateToProps = state => ({
   movies: state.movies,
   recentMovies: state.recentMovies,
-})
+});
 
-const mapDispatchToProps = () => ({})
+const mapDispatchToProps = () => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(withI18n(HomePage));

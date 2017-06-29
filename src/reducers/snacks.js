@@ -26,9 +26,7 @@ const snacks = (state = initialState, action) => {
     case 'SNACK_DISMISS':
       return {
         ...state,
-        queue: state.queue.filter(snackId => (
-          snackId !== action.id
-        )),
+        queue: state.queue.filter(snackId => snackId !== action.id),
       };
     case 'SNACK_CLEAR_ALL':
       return {

@@ -25,18 +25,20 @@ class I18nProvider extends Component {
   componentDidUpdate(prevProps) {
     // if (prevProps.ui.userPreferences.locale !==
     //   this.props.ui.userPreferences.locale) {
-      this.setState({ polyglot: new Polyglot({
+    this.setState({
+      polyglot: new Polyglot({
         // locale: this.props.ui.userPreferences.locale,
         locale: 'en',
         phrases: this.getPhrases(),
-      }) });
+      }),
+    });
     // }
   }
 
   getPhrases() {
     // switch (this.props.ui.userPreferences.locale) {
     //   case 'fr':
-        return en;
+    return en;
     //   case 'en':
     //   default:
     //     return en;
@@ -56,7 +58,7 @@ class I18nProvider extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   ui: state.ui,
 });
 

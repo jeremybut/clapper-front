@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import { fetchMovie } from "../actions/movie";
+import { fetchMovie } from '../actions/movie';
 import withI18n from '../components/Ui/withI18n';
 
 class Movie extends Component {
@@ -9,7 +9,7 @@ class Movie extends Component {
     super(props);
     this.state = {
       movie: this.props.movieById[this.props.params.id],
-    }
+    };
   }
 
   render() {

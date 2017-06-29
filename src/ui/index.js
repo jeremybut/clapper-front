@@ -19,13 +19,15 @@ export const Container = styled.div`
   padding-left: ${spacing(2)};
   padding-right: ${spacing(2)};
 
-  ${props => props.narrow && css`
+  ${props =>
+    props.narrow &&
+    css`
     max-width: 960px;
-  `}
-
-  ${props => props.tight && css`
+  `} ${props =>
+      props.tight &&
+      css`
     max-width: 800px;
-  `}
+  `};
 `;
 
 export { color, ui };

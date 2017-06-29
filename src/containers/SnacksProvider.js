@@ -42,7 +42,7 @@ class SnacksProvider extends Component {
     }
     this.state.ga('send', 'pageview', { page });
     this.setState({
-      lastSentAt: moment()
+      lastSentAt: moment(),
     });
   }
 
@@ -58,13 +58,15 @@ class SnacksProvider extends Component {
     }
     this.state.ga('send', 'event', category, action, label, value);
     this.setState({
-      lastSentAt: moment()
+      lastSentAt: moment(),
     });
   }
 
   shouldThrottle() {
-    return (!!this.state.lastSentAt &&
-      moment().diff(this.state.lastSentAt) < this.state.throttleLimit);
+    return (
+      !!this.state.lastSentAt &&
+      moment().diff(this.state.lastSentAt) < this.state.throttleLimit
+    );
   }
 
   sendSnack(snack) {

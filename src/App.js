@@ -41,13 +41,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header
-          foo="bar"
-          onClick={this.handleClick}
-        />
-        <div>
-          {this.props.children}
-        </div>
+        <Header foo="bar" onClick={this.handleClick} />
+        {this.props.children}
       </div>
     );
   }
@@ -60,6 +55,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   dispatchFetchMovies: () => dispatch(fetchMovies()),
   dispatchFetchRecentMovies: () => dispatch(fetchRecentMovies()),
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

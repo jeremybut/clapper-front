@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { browserHistory, Router, Route, IndexRoute } from 'react-router';
@@ -17,13 +17,11 @@ import clapperReducer from './reducers';
 import { loadState, saveState } from './api/localStorage';
 
 const persistedState = loadState();
-const createStoreWithMiddleware = applyMiddleware(
-  thunkMiddleware,
-)(createStore);
+const createStoreWithMiddleware = applyMiddleware(thunkMiddleware)(createStore);
 const store = createStoreWithMiddleware(
   clapperReducer,
   persistedState,
-  window.devToolsExtension && window.devToolsExtension()
+  window.devToolsExtension && window.devToolsExtension(),
 );
 store.subscribe(() => {
   const state = store.getState();

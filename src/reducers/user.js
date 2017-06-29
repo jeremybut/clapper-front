@@ -1,5 +1,7 @@
 import * as types from '../constants/actionTypes';
 
+const initialState = {};
+
 const user = (state = {}, action) => {
   switch (action.type) {
     case types.LOGIN_SUCCESS:
@@ -11,7 +13,7 @@ const user = (state = {}, action) => {
         id: action.id,
       };
     case types.LOGOUT_SUCCESS:
-      return null;
+      return initialState;
     default:
       return state;
   }

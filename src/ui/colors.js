@@ -27,7 +27,7 @@ const colors = {
 
 const color = (name, shade = 'default') => {
   return colors[name] && colors[name][shade];
-}
+};
 
 const colorsUi = {
   primary: color('red'),

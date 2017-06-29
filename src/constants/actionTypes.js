@@ -2,6 +2,8 @@ export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
 
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+
 export const MOVIE_REQUEST = 'MOVIE_REQUEST';
 export const MOVIE_SUCCESS = 'MOVIE_SUCCESS';
 export const MOVIE_ERROR = 'MOVIE_ERROR';

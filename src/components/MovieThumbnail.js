@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link as RawLink } from 'react-router';
 import styled from 'styled-components';
-import { ui, color, spacing, container } from '../ui';
+import { spacing } from '../ui';
 
 const Thumbnail = styled(RawLink)`
   color: #fff;
@@ -31,14 +31,20 @@ const MovieThumbnail = props => {
   return (
     <Thumbnail to={`/movie/${movie.movieid}`}>
       <img
-        src={`http://jeremybut.synology.me:8081/image/`+encodeURIComponent(`${movie.thumbnail}`)}
+        src={
+          `http://jeremybut.synology.me:8081/image/` +
+          encodeURIComponent(`${movie.thumbnail}`)
+        }
       />
-      { false &&
-        <ThumbnailGender>{movie.genre}</ThumbnailGender>
-      }
-      <ThumbnailTitle>{movie.label}</ThumbnailTitle>
+      {false &&
+        <ThumbnailGender>
+          {movie.genre}
+        </ThumbnailGender>}
+      <ThumbnailTitle>
+        {movie.label}
+      </ThumbnailTitle>
     </Thumbnail>
   );
-}
+};
 
 export default MovieThumbnail;

@@ -7,14 +7,16 @@ const requestLogout = () => ({
   type: types.LOGOUT_SUCCESS,
 });
 
-export const logout = () => (dispatch) => {
+export const logout = () => dispatch => {
   dispatch(requestLogout());
 
-  dispatch(sendSnack({
-    id: v4(),
-    type: 'success',
-    duration: 5000,
-    message: 'snacks.logout.success',
-    action: 'OK',
-  }));
+  dispatch(
+    sendSnack({
+      id: v4(),
+      type: 'success',
+      duration: 5000,
+      message: 'snacks.logout.success',
+      action: 'OK',
+    }),
+  );
 };

@@ -18,7 +18,8 @@ export const get = uri => {
     method: 'get',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user.token}`,
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user
+        .token}`,
     },
   }).then(handleErrors);
 };
@@ -28,7 +29,8 @@ export const post = (uri, payload = {}) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user.token}`,
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user
+        .token}`,
     },
     body: JSON.stringify(payload),
   }).then(handleErrors);
@@ -39,7 +41,8 @@ export const put = (uri, payload = {}) => {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user.token}`,
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user
+        .token}`,
     },
     body: JSON.stringify(payload),
   }).then(handleErrors);
@@ -50,7 +53,8 @@ export const patch = (uri, payload = {}) => {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user.token}`,
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user
+        .token}`,
     },
     body: JSON.stringify(payload),
   }).then(handleErrors);
@@ -61,15 +65,17 @@ export const destroy = (uri, id) => {
     method: 'delete',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user.token}`,
+      Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user
+        .token}`,
     },
   }).then(handleErrors);
 };
 
-export const postAuthorizationCode = payload => fetch(`${BASE_URL}/oauth/token`, {
-  method: 'post',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(payload),
-}).then(handleErrors);
+export const postAuthorizationCode = payload =>
+  fetch(`${BASE_URL}/oauth/token`, {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  }).then(handleErrors);

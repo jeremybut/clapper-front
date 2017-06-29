@@ -22,38 +22,38 @@ class Signup extends Component {
       kodi_port: this.refs.kodiPort.value,
       kodi_username: this.refs.kodiUsername.value,
       kodi_password: this.refs.kodiPassword.value,
-    }
+    };
 
     this.props.signup(payload);
   }
 
   render() {
     return (
-      <div className='p-authentication'>
-        <div className='g-container'>
-          <h1 className='p-authentication__title'>Signup</h1>
+      <div className="p-authentication">
+        <div className="g-container">
+          <h1 className="p-authentication__title">Signup</h1>
           <form onSubmit={this.handleFormSubmit}>
-            <div className='c-form-group'>
+            <div className="c-form-group">
               <label>Email</label>
               <input type="email" ref="email" />
             </div>
-            <div className='c-form-group'>
+            <div className="c-form-group">
               <label>Mot de passe</label>
               <input type="text" ref="password" />
             </div>
-            <div className='c-form-group'>
+            <div className="c-form-group">
               <label>Kodi Host</label>
               <input type="text" ref="kodiHost" />
             </div>
-            <div className='c-form-group'>
+            <div className="c-form-group">
               <label>Kodi Port</label>
               <input type="text" ref="kodiPort" />
             </div>
-            <div className='c-form-group'>
+            <div className="c-form-group">
               <label>Kodi Username</label>
               <input type="text" ref="kodiUsername" />
             </div>
-            <div className='c-form-group'>
+            <div className="c-form-group">
               <label>Kodi Mot de passe</label>
               <input type="text" ref="kodiPassword" />
             </div>
@@ -68,7 +68,7 @@ class Signup extends Component {
 const mapStateToProps = () => ({});
 
 const mapDispatchToProps = dispatch => ({
-  dispatchSignup: (payload) => dispatch(signup(payload)),
+  dispatchSignup: payload => dispatch(signup(payload)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withI18n(Signup));

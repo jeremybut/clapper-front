@@ -10,7 +10,7 @@ import logo from '../../static/media/clapper-logo.svg';
 const Wrapper = styled.header`
   background-color: ${ui('primary')};
   width: 100%;
-  padding: ${spacing()};
+  padding: ${spacing(0.5)};
 `;
 
 const Nav = styled.nav`
@@ -27,11 +27,14 @@ const NavigationList = styled.ul`
 `;
 
 const NavigationItem = styled.li`
-  margin-left: ${spacing()};
+  margin-left: ${spacing(2)};
 
-  ${props => props.logo && css`
+  ${props =>
+    props.logo &&
+    css`
     margin-right: ${spacing(3)};
-  `}
+    margin-left: 0;
+  `};
 `;
 
 const Link = styled(RawLink)`
@@ -55,16 +58,30 @@ class Header extends Component {
         <Nav>
           <NavigationList>
             <NavigationItem logo>
-              <Link to='/'>
-                <img src={logo} alt='Logo Clapper' />
+              <Link to="/">
+                <img src={logo} alt="Logo Clapper" />
               </Link>
             </NavigationItem>
             <NavigationItem>
               <Link to="/">Accueil</Link>
             </NavigationItem>
+            <NavigationItem>
+              <Link to="/">Ma bibliothèque</Link>
+            </NavigationItem>
+            <NavigationItem>
+              <Link to="/">Mes amis</Link>
+            </NavigationItem>
+            <NavigationItem>
+              <Link to="/">Activités</Link>
+            </NavigationItem>
           </NavigationList>
           <NavigationList>
-
+            <NavigationItem>
+              <Link to="/">Paramètres</Link>
+            </NavigationItem>
+            <NavigationItem>
+              <Link to="/">Mon profil</Link>
+            </NavigationItem>
             <NavigationItem>
               <button onClick={this.handleLogout}>Se déconnecter</button>
             </NavigationItem>
