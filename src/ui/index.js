@@ -1,9 +1,8 @@
 import styled, { css } from 'styled-components';
 import { color, ui } from './colors';
-
-export const base = 16;
-export const spacing = (input = 1) => `${input * base}px`;
-export const lineHeight = 1.8;
+import { spacing, lineHeight } from './variables';
+import { Label, Input, FormGroup, FormHelp } from './forms';
+import { Button } from './buttons';
 
 export const List = styled.ul`
   padding-left: 0;
@@ -22,12 +21,25 @@ export const Container = styled.div`
   ${props =>
     props.narrow &&
     css`
-    max-width: 960px;
+    max-width: 850px;
   `} ${props =>
       props.tight &&
       css`
-    max-width: 800px;
+    max-width: 600px;
   `};
 `;
 
-export { color, ui };
+export const AlignCenter = styled.div`
+  text-align: center;
+`;
+
+export const AlignRight = styled.div`
+  text-align: right;
+`;
+
+export {
+  color, ui,
+  spacing, lineHeight,
+  Label, Input, FormGroup, FormHelp,
+  Button,
+};
