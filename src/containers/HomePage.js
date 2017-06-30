@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import values from 'lodash';
 import styled from 'styled-components';
-import { ui, spacing, Container } from '../ui';
 
+import { ui, spacing, Container } from '../ui';
 import withI18n from '../components/Ui/withI18n';
 import MovieThumbnail from '../components/MovieThumbnail';
 

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+
 import { spacing } from './variables';
 import { color, ui } from './colors';
 
@@ -20,7 +21,10 @@ export const Button = styled.button`
     box-shadow: 0 0 0 1px solid ${ui('secondary')};
     color: ${ui('secondary')};
   `};
+
+  ${props => props.outlineWhite && css`
+    background-color: transparent;
+    box-shadow: 0 0 0 1px solid #fff;
+    color: #fff;
+  `};
 `;
-
-
-

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link as RawLink } from 'react-router';
 import { connect } from 'react-redux';
 import styled, { css } from 'styled-components';
-import { ui, spacing } from '../ui';
 
+import { ui, spacing } from '../ui';
 import { logout } from '../actions/logout';
 import logo from '../../static/media/clapper-logo.svg';
 
@@ -24,21 +24,56 @@ const NavigationList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-`;
-
-const NavigationItem = styled.li`
-  margin-left: ${spacing(2)};
 
   ${props =>
     props.logo &&
     css`
-    margin-right: ${spacing(3)};
-    margin-left: 0;
+    margin-right: ${spacing(2)};
+
+    li {
+      margin-left: 0;
+    }
+  `};
+
+  ${props =>
+    props.navigation &&
+    css`
+    flex: 1;
+  `};
+
+  ${props =>
+    props.user &&
+    css`
+
+    li {
+      margin-left: 0;
+      margin-right: ${spacing()};
+    }
   `};
 `;
 
+const NavigationItem = styled.li`
+  margin-right: ${spacing(1.5)};
+`;
+
 const Link = styled(RawLink)`
-  color: #fff;
+  color: rgba(255,255,255,.9);
+  transition: color 150ms ease;
+
+  &:hover {
+    color: #fff;
+  }
+`;
+
+const Button = styled.button`
+  box-shadow: 0 0 0 1px #fff;
+  border-radius: 4px;
+  padding: ${spacing(0.5)} ${spacing(0.75)};
+  transition: box-shadow 150ms ease;
+
+  &:hover {
+    box-shadow: 0 0 0 2px #fff;
+  }
 `;
 
 class Header extends Component {
@@ -56,15 +91,14 @@ class Header extends Component {
     return (
       <Wrapper>
         <Nav>
-          <NavigationList>
-            <NavigationItem logo>
+          <NavigationList logo>
+            <NavigationItem>
               <Link to="/">
                 <img src={logo} alt="Logo Clapper" />
               </Link>
             </NavigationItem>
-            <NavigationItem>
-              <Link to="/">Accueil</Link>
-            </NavigationItem>
+          </NavigationList>
+          <NavigationList navigation>
             <NavigationItem>
               <Link to="/">Ma bibliothèque</Link>
             </NavigationItem>
@@ -72,10 +106,13 @@ class Header extends Component {
               <Link to="/">Mes amis</Link>
             </NavigationItem>
             <NavigationItem>
+              <Link to="/">Ma wishlist</Link>
+            </NavigationItem>
+            <NavigationItem>
               <Link to="/">Activités</Link>
             </NavigationItem>
           </NavigationList>
-          <NavigationList>
+          <NavigationList user>
             <NavigationItem>
               <Link to="/">Paramètres</Link>
             </NavigationItem>
@@ -83,7 +120,7 @@ class Header extends Component {
               <Link to="/">Mon profil</Link>
             </NavigationItem>
             <NavigationItem>
-              <button onClick={this.handleLogout}>Se déconnecter</button>
+              <Button onClick={this.handleLogout}>Se déconnecter</Button>
             </NavigationItem>
           </NavigationList>
         </Nav>
