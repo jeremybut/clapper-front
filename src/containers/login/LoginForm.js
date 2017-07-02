@@ -10,18 +10,16 @@ import { loginUser } from '../../actions/login';
 
 const Authentication = styled.div`
   min-height: 100vh;
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: ${spacing(3)} 0;
 `;
 
 const Box = styled.div`
   display: flex;
-  padding: ${spacing(2)};
-  border-radius: 8px;
-  background-color: rgba(0, 0, 0, .2);
 `;
 
 const Logo = styled.img`
