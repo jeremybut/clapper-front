@@ -3,12 +3,12 @@ import { Link as RawLink } from 'react-router';
 import { connect } from 'react-redux';
 import styled, { css } from 'styled-components';
 
+import DropdownMenu from './DropdownMenu';
 import { ui, spacing } from '../ui';
-import { logout } from '../actions/logout';
 import logo from '../../static/media/clapper-logo.svg';
 
 const Wrapper = styled.header`
-  background-color: ${ui('primary')};
+  background-color: ${ui('secondary')};
   width: 100%;
   padding: ${spacing(0.5)};
 `;
@@ -40,16 +40,6 @@ const NavigationList = styled.ul`
     css`
     flex: 1;
   `};
-
-  ${props =>
-    props.user &&
-    css`
-
-    li {
-      margin-left: 0;
-      margin-right: ${spacing()};
-    }
-  `};
 `;
 
 const NavigationItem = styled.li`
@@ -66,25 +56,19 @@ const Link = styled(RawLink)`
 `;
 
 const Button = styled.button`
-  box-shadow: 0 0 0 1px #fff;
+  border: 1px solid rgba(255,255,255,.8);
   border-radius: 4px;
   padding: ${spacing(0.5)} ${spacing(0.75)};
-  transition: box-shadow 150ms ease;
+  transition: border-color 150ms ease;
 
   &:hover {
-    box-shadow: 0 0 0 2px #fff;
+    border-color: #fff;
   }
 `;
 
 class Header extends Component {
   constructor() {
     super();
-
-    this.handleLogout = this.handleLogout.bind(this);
-  }
-
-  handleLogout() {
-    this.props.dispatchLogout();
   }
 
   render() {
@@ -100,37 +84,24 @@ class Header extends Component {
           </NavigationList>
           <NavigationList navigation>
             <NavigationItem>
-              <Link to="/">Ma bibliothèque</Link>
+              <Link to="/">Médiathèque</Link>
             </NavigationItem>
             <NavigationItem>
-              <Link to="/">Mes amis</Link>
+              <Link to="/">Amis</Link>
             </NavigationItem>
             <NavigationItem>
-              <Link to="/">Ma wishlist</Link>
+              <Link to="/">Wishlist</Link>
             </NavigationItem>
             <NavigationItem>
               <Link to="/">Activités</Link>
             </NavigationItem>
           </NavigationList>
-          <NavigationList user>
-            <NavigationItem>
-              <Link to="/">Paramètres</Link>
-            </NavigationItem>
-            <NavigationItem>
-              <Link to="/">Mon profil</Link>
-            </NavigationItem>
-            <NavigationItem>
-              <Button onClick={this.handleLogout}>Se déconnecter</Button>
-            </NavigationItem>
-          </NavigationList>
+          <DropdownMenu />
         </Nav>
       </Wrapper>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  dispatchLogout: () => dispatch(logout()),
-});
 
-export default connect(null, mapDispatchToProps)(Header);
+export default Header;
