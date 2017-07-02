@@ -5,7 +5,11 @@ html {
 body {
   font-family: $font-text;
   color: #fff;
-  background-color: #222B31;
+  background-image: url('../static/media/background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top left;
+  min-height: 100vh;
 }
 
 // h1,

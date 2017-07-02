@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { spacing } from './variables';
 
 export const FormGroup = styled.div`
-  margin: ${spacing()} 0;
+  margin: 0 0 ${spacing(2)} 0;
 `;
 
 export const Label = styled.label`
@@ -13,8 +13,9 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   padding: ${spacing(0.75)} ${spacing()};
-  background-color: rgba(0,0,0,.2);
+  background-color: rgba(255,255,255,.15);
   width: 100%;
+  border-radius: 4px;
   font-size: 1.125rem;
   outline: none;
   transition: background-color 150ms ease;
@@ -22,7 +23,7 @@ export const Input = styled.input`
   &:hover,
   &:focus,
   &:active {
-    background-color: rgba(0,0,0,.35);
+    background-color: rgba(255,255,255,.25);
   }
 `;
 

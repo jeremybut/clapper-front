@@ -17,8 +17,8 @@
             </feMerge>
         </filter>
         <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
-            <stop stop-color="#FFAA00" offset="0%"></stop>
-            <stop stop-color="#FF8000" offset="100%"></stop>
+            <stop stop-color="#FFBB00" offset="0%"></stop>
+            <stop stop-color="#FFA200" offset="100%"></stop>
         </linearGradient>
         <circle id="path-4" cx="24" cy="24" r="24"></circle>
         <filter x="-18.8%" y="-12.5%" width="137.5%" height="137.5%" filterUnits="objectBoundingBox" id="filter-5">
@@ -34,9 +34,9 @@
             </feMerge>
         </filter>
     </defs>
-    <g id="Clapper" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Index" transform="translate(-26.000000, -14.000000)">
-            <g id="clapper-logo" transform="translate(30.000000, 16.000000)">
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="logos/clapper-logo" transform="translate(4.000000, 2.000000)">
+            <g id="clapper-logo">
                 <g id="CLAPPER">
                     <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
                     <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
