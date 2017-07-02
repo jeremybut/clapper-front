@@ -61,7 +61,7 @@ class HomePage extends Component {
       <Container>
         <section>
           <HeaderList>
-            <HeadingList>Récemment ajouté</HeadingList>
+            <HeadingList>Mes ajouts récents</HeadingList>
             <Link to="">Voir tout</Link>
           </HeaderList>
           <MoviesList>
@@ -70,7 +70,25 @@ class HomePage extends Component {
         </section>
         <section>
           <HeaderList>
-            <HeadingList>Toute ma bibliothèque</HeadingList>
+            <HeadingList>Les plus demandés par mes amis</HeadingList>
+            <Link to="">Voir tout</Link>
+          </HeaderList>
+          <MoviesList>
+            {OtherMovies}
+          </MoviesList>
+        </section>
+        <section>
+          <HeaderList>
+            <HeadingList>Dans ma wishlist</HeadingList>
+            <Link to="">Voir tout</Link>
+          </HeaderList>
+          <MoviesList>
+            {OtherMovies}
+          </MoviesList>
+        </section>
+        <section>
+          <HeaderList>
+            <HeadingList>Toute ma médiathèque</HeadingList>
             <Link to="">Voir tout</Link>
           </HeaderList>
           <MoviesList>
