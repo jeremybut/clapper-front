@@ -11,9 +11,8 @@ import SnacksProvider from './containers/SnacksProvider';
 import I18nProvider from './containers/I18nProvider';
 import HomePage from './containers/HomePage';
 import Movie from './containers/Movie';
-// import Login from './containers/Login';
-import LoginForm from './containers/login/LoginForm';
-import SignUp from './containers/SignUp';
+import Login from './containers/Login';
+import Signup from './containers/Signup';
 import clapperReducer from './reducers';
 import { loadState, saveState } from './api/localStorage';
 
@@ -37,8 +36,8 @@ ReactDOM.render(
       <I18nProvider>
         <SnacksProvider>
           <Router history={browserHistory}>
-            <Route path="/login" component={LoginForm} />
-            <Route path="/signup" component={SignUp} />
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
             <Route path="/" component={App}>
               <IndexRoute component={HomePage} />
               <Route path="movie/:id" component={Movie} />

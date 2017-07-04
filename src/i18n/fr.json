@@ -1,1 +1,4 @@
-{}
+{
+  "snacks.login.success": "Connexion réussie !",
+  "snacks.logout.success": "Déconnexion réussie !"
+}

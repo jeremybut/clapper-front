@@ -1,8 +1,10 @@
+import { browserHistory } from 'react-router';
 import { v4 } from 'node-uuid';
 
 import * as Api from '../api/api';
 import * as types from '../constants/actionTypes';
 import { sendSnack } from './snacks';
+import { decamelizeKeys } from 'humps';
 
 const requestSignup = () => ({
   type: types.SIGNUP_REQUEST,
@@ -18,33 +20,39 @@ const receiveSignupError = payload => ({
   payload,
 });
 
-export const signup = user => dispatch => {
-  dispatch(requestSignup());
+const receiveLoginSuccess = payload => ({
+  type: types.LOGIN_SUCCESS,
+  payload,
+});
 
-  return Api.post('/v1/signup', { user }).then(
-    response => {
-      dispatch(
-        sendSnack({
+export const signup = payload => dispatch => {
+  dispatch(requestSignup());
+  const user = decamelizeKeys(payload);
+
+  Api.post('/v1/signup', { user })
+    .then(
+      response => {
+        console.log(response)
+        dispatch(sendSnack({
           id: v4(),
           type: 'success',
           duration: 5000,
           message: 'snacks.signup.success',
           action: 'OK',
-        }),
-      );
-      return dispatch(receiveSignupSuccess(response));
-    },
-    error => {
-      dispatch(
-        sendSnack({
+        }));
+        dispatch(receiveSignupSuccess(response));
+        dispatch(receiveLoginSuccess(response));
+        return browserHistory.push('/');
+      },
+      e => {
+        dispatch(sendSnack({
           id: v4(),
           type: 'error',
           duration: 5000,
-          message: 'snacks.create.error',
+          message: e.error.message,
           action: 'OK',
-        }),
-      );
-      return dispatch(receiveSignupError(error));
-    },
-  );
+        }));
+        dispatch(receiveSignupError(e));
+      },
+    );
 };

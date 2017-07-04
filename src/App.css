@@ -544,3 +544,58 @@ ul {
   color: #fff; }
   .c-link--white:hover {
     background-color: rgba(0, 0, 0, 0.15); }
+
+.c-snackbar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate3d(-50%, 100%, 0);
+  min-width: 20em;
+  max-width: 100%;
+  background-color: #2a3540;
+  transition: transform 200ms ease-in-out;
+  display: flex;
+  z-index: 21;
+  -webkit-backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -webkit-transform-style: preserve-3d;
+  border: 0;
+  color: #fff;
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0; }
+  @media (min-width: 900px) {
+    .c-snackbar {
+      max-width: 900px; } }
+
+.c-snackbar__message,
+.c-snackbar__action {
+  vertical-align: middle;
+  padding: 16px;
+  margin-top: 0;
+  margin-bottom: 0; }
+
+.c-snackbar__message {
+  flex: 1; }
+
+.c-snackbar__action {
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: right;
+  outline: none;
+  border: 0;
+  background-color: transparent;
+  outline: none; }
+
+.c-snackbar--active {
+  transform: translate3d(-50%, 0, 0); }
+
+.c-snackbar__action--info {
+  color: #0077B3; }
+
+.c-snackbar__action--success {
+  color: #35A16B; }
+
+.c-snackbar__action--danger {
+  color: #D14159; }

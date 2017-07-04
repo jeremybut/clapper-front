@@ -1,8 +1,8 @@
 import { Component, PropTypes, Children } from 'react';
 import { connect } from 'react-redux';
 import Polyglot from 'node-polyglot';
-import en from '../i18n/en.json';
-// import fr from '../i18n/fr.json';
+// import en from '../i18n/en.json';
+import fr from '../i18n/fr.json';
 
 class I18nProvider extends Component {
   static childContextTypes = {
@@ -14,7 +14,7 @@ class I18nProvider extends Component {
     this.state = {
       polyglot: new Polyglot({
         // locale: this.props.ui.userPreferences.locale,
-        locale: 'en',
+        locale: 'fr',
         phrases: this.getPhrases(),
       }),
     };
@@ -28,7 +28,7 @@ class I18nProvider extends Component {
     this.setState({
       polyglot: new Polyglot({
         // locale: this.props.ui.userPreferences.locale,
-        locale: 'en',
+        locale: 'fr',
         phrases: this.getPhrases(),
       }),
     });
@@ -38,7 +38,7 @@ class I18nProvider extends Component {
   getPhrases() {
     // switch (this.props.ui.userPreferences.locale) {
     //   case 'fr':
-    return en;
+    return fr;
     //   case 'en':
     //   default:
     //     return en;

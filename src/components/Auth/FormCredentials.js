@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import styled from 'styled-components';
+import { Link } from 'react-router';
 
 import { ui, spacing, Button, AlignRight, lineHeight } from '../../ui';
 import validate from './validate';
@@ -21,9 +22,10 @@ const Subtitle = styled.p`
   font-weight: 300;
 `;
 
-const LoginFormCredentials = ({ handleSubmit }) =>
+const LoginFormCredentials = ({ handleSubmit, btnText, action }) =>
   <Form onSubmit={handleSubmit}>
-    <Title>Connexion</Title>
+    {action == 'signup' && <Title>Inscription</Title>}
+    {action == 'login' && <Title>Connexion</Title>}
     <Subtitle>
       Merci de vérifier que votre téléphone est bien éteint avant la projection…
     </Subtitle>
@@ -40,9 +42,11 @@ const LoginFormCredentials = ({ handleSubmit }) =>
       component={renderField}
       label="Mot de passe :"
     />
+    {action == 'signup' && <Link to='/login'>Se connecter</Link>}
+    {action == 'login' && <Link to='/signup'>S'enregistrer</Link>}
     <AlignRight>
       <Button big type="submit" className="next">
-        Suivant
+        {btnText}
       </Button>
     </AlignRight>
   </Form>

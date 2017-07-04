@@ -1,74 +1,90 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
+import { ui, Container, spacing, AlignCenter } from '../ui';
+import logo from '../../static/media/clapper-icon.svg';
+import FormCredentials from '../components/Auth/FormCredentials';
+import FormSettings from '../components/Auth/FormSettings';
 import { signup } from '../actions/signup';
 import withI18n from '../components/Ui/withI18n';
+
+const Authentication = styled.div`
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: ${spacing(3)} 0;
+`;
+
+const Box = styled.div`
+  display: flex;
+`;
+
+const Logo = styled.img`
+  margin-bottom: ${spacing(2)};
+  height: 96px;
+`;
 
 class Signup extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
-
+    this.nextPage = this.nextPage.bind(this);
+    this.previousPage = this.previousPage.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+
+    this.state = {
+      page: 1,
+    };
   }
 
-  handleFormSubmit(e) {
-    e.preventDefault();
+  nextPage() {
+    this.setState({ page: this.state.page + 1 });
+  }
 
-    const payload = {
-      email: this.refs.email.value,
-      password: this.refs.password.value,
-      kodi_host: this.refs.kodiHost.value,
-      kodi_port: this.refs.kodiPort.value,
-      kodi_username: this.refs.kodiUsername.value,
-      kodi_password: this.refs.kodiPassword.value,
-    };
+  previousPage() {
+    this.setState({ page: this.state.page - 1 });
+  }
 
-    this.props.signup(payload);
+  handleFormSubmit(credentials) {
+    this.props.dispatchSignupUser(credentials);
   }
 
   render() {
+    const { page } = this.state;
     return (
-      <div className="p-authentication">
-        <div className="g-container">
-          <h1 className="p-authentication__title">Signup</h1>
-          <form onSubmit={this.handleFormSubmit}>
-            <div className="c-form-group">
-              <label>Email</label>
-              <input type="email" ref="email" />
-            </div>
-            <div className="c-form-group">
-              <label>Mot de passe</label>
-              <input type="text" ref="password" />
-            </div>
-            <div className="c-form-group">
-              <label>Kodi Host</label>
-              <input type="text" ref="kodiHost" />
-            </div>
-            <div className="c-form-group">
-              <label>Kodi Port</label>
-              <input type="text" ref="kodiPort" />
-            </div>
-            <div className="c-form-group">
-              <label>Kodi Username</label>
-              <input type="text" ref="kodiUsername" />
-            </div>
-            <div className="c-form-group">
-              <label>Kodi Mot de passe</label>
-              <input type="text" ref="kodiPassword" />
-            </div>
-            <button type="submit">S'inscrire</button>
-          </form>
-        </div>
-      </div>
+      <Authentication>
+        <Container tight>
+          <AlignCenter>
+            <Logo src={logo} alt="Logo Clapper" />
+          </AlignCenter>
+          {page === 1 &&
+            <Box>
+              <FormCredentials
+                onSubmit={this.nextPage}
+                btnText='Suivant'
+                action='signup'
+              />
+            </Box>
+          }
+          {page === 2 &&
+            <Box>
+              <FormSettings
+                previousPage={this.previousPage}
+                onSubmit={this.handleFormSubmit}
+              />
+            </Box>
+          }
+        </Container>
+      </Authentication>
     );
   }
 }
 
-const mapStateToProps = () => ({});
-
 const mapDispatchToProps = dispatch => ({
-  dispatchSignup: payload => dispatch(signup(payload)),
+  dispatchSignupUser: credentials => dispatch(signup(credentials)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withI18n(Signup));
+export default connect(null, mapDispatchToProps)(withI18n(Signup));

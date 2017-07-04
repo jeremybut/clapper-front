@@ -3,7 +3,7 @@ import { API_ROOT, BASE_URL } from '../constants';
 
 const handleErrors = response => {
   if (!response.ok) {
-    throw Error(response.statusText);
+    return response.json().then(Promise.reject.bind(Promise));
   }
 
   if (response.status === 204) {
@@ -19,7 +19,7 @@ export const get = uri => {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user
-        .token}`,
+        .access_token}`,
     },
   }).then(handleErrors);
 };
@@ -30,7 +30,7 @@ export const post = (uri, payload = {}) => {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user
-        .token}`,
+        .access_token}`,
     },
     body: JSON.stringify(payload),
   }).then(handleErrors);
@@ -42,7 +42,7 @@ export const put = (uri, payload = {}) => {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user
-        .token}`,
+        .access_token}`,
     },
     body: JSON.stringify(payload),
   }).then(handleErrors);
@@ -54,7 +54,7 @@ export const patch = (uri, payload = {}) => {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user
-        .token}`,
+        .access_token}`,
     },
     body: JSON.stringify(payload),
   }).then(handleErrors);
@@ -66,7 +66,7 @@ export const destroy = (uri, id) => {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${JSON.parse(localStorage.getItem('state')).user
-        .token}`,
+        .access_token}`,
     },
   }).then(handleErrors);
 };
